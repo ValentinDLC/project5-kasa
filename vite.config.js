@@ -4,6 +4,7 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
+  base: '/project5-kasa/',
   optimizeDeps: {
     include: ["react", "react-dom"],
   },
