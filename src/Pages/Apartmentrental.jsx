@@ -5,7 +5,7 @@ import Collapse from "../components/Collapse";
 import Carousel from "../components/Carousel";
 import Apartment_Head from "../components/Apartment_Head";
 import ErrorPage from "../Pages/ErrorPage";
-import logementsData from "../data/logements.json"; // Importation directe
+import logementsData from "../data/logements.json"; // Importation directe des données
 
 function Apartmentrental() {
   const { id } = useParams();
