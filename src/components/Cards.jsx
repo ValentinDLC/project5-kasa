@@ -6,10 +6,15 @@ function Cards() {
   const [apartments, setApartments] = useState([]);
 
   useEffect(() => {
-    fetch("/logements.json")
-      .then((res) => res.json())
-      .then((res) => setApartments(res))
-      .catch(console.error);
+    fetch(`${process.env.PUBLIC_URL}/logements.json`)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return res.json();
+      })
+      .then((data) => setApartments(data))
+      .catch((error) => console.error("Error fetching data:", error));
   }, []);
 
   return (
