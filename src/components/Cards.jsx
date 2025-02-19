@@ -1,21 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import logementsData from "../data/logements.json"; // Importation directe
 import "../assets/sass/Components/Cards.scss";
 
 function Cards() {
-  const [apartments, setApartments] = useState([]);
-
-  useEffect(() => {
-    fetch(`${process.env.PUBLIC_URL}/logements.json`)
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return res.json();
-      })
-      .then((data) => setApartments(data))
-      .catch((error) => console.error("Error fetching data:", error));
-  }, []);
+  const [apartments] = useState(logementsData); // Initialisation directe
 
   return (
     <div className="grid">
