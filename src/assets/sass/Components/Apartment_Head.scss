@@ -1,0 +1,94 @@
+@import "../../sass/variables";
+
+.apartment_head {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px 0;
+
+  .apartment-rental_title {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    h1 {
+      font-size: 36px;
+      font-weight: 500;
+      color: $color1;
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 18px;
+      font-weight: 500;
+      margin: 0;
+    }
+
+    .apartments_tags {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+
+      span {
+        display: flex;
+        background-color: $color1;
+        border-radius: 10px;
+        text-align: center;
+        max-height: 30px;
+        align-items: center;
+        color: white;
+        font-size: 14px;
+        font-weight: 700;
+        padding: 5px 15px;
+      }
+    }
+  }
+}
+
+.apartment_owner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &_details {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 165px;
+
+    .name {
+      font-size: 18px;
+      font-weight: 500;
+      color: $color1;
+    }
+
+    .apartment_owner_badge {
+      img {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  &_stars {
+    display: flex;
+
+    .star {
+      width: 34px;
+      height: 34px;
+    }
+  }
+}
+
+@include respond-to(mobile) {
+  .apartment_head {
+    flex-direction: column;
+    margin: 10px 0;
+  }
+
+  .apartment_owner {
+    flex-direction: row-reverse;
+    align-items: center;
+    margin-top: 20px;
+  }
+}

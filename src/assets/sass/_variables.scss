@@ -1,0 +1,105 @@
+$color1: #ff6060;
+$color2: #f6f6f6;
+$color3: black;
+
+$large: 1280px;
+$medium: 900px;
+$small: 768px;
+$xsmall: 376px;
+
+$breakpoints: (
+  mobile: (
+    max: 767.98px,
+  ),
+  widescreen: (
+    min: 1439.98px,
+  ),
+);
+
+@mixin respond-to($breakpoint) {
+  $breakpoint-value: map-get($breakpoints, $breakpoint);
+  $min: map-get($breakpoint-value, min);
+  $max: map-get($breakpoint-value, max);
+
+  @if $min != null and $max != null {
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  } @else if $min != null {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else if $max != null {
+    @media (max-width: $max) {
+      @content;
+    }
+  }
+}
+
+@mixin medium {
+  @media (max-width: $large) {
+    @content;
+  }
+}
+@mixin small {
+  @media (max-width: $medium) {
+    @content;
+  }
+}
+@mixin xsmall {
+  @media (max-width: $small) {
+    @content;
+  }
+}
+@mixin xxsmall {
+  @media (max-width: $xsmall) {
+    @content;
+  }
+}
+
+@mixin flex($justify: flex-start, $align: stretch, $direction: row) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+}
+
+@mixin font($size, $weight) {
+  font-size: $size;
+  font-weight: $weight;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap");
+
+* {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+.wrapper {
+  width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+  @include medium {
+    width: 100%;
+  }
+}
+
+li {
+  list-style: none;
+}

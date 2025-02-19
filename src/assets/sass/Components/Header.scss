@@ -1,0 +1,58 @@
+@import "../variables";
+
+.header {
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2.5rem auto;
+  padding-inline: 3rem;
+  width: 100%;
+
+  @include xsmall {
+    padding-inline: 1rem;
+  }
+
+  .logo {
+    img {
+      @include xsmall {
+        width: calc(145rem / 16);
+      }
+    }
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+
+    @include xsmall {
+      gap: 1.5rem;
+    }
+
+    @include xxsmall {
+      gap: 1rem;
+    }
+  }
+
+  .nav-link {
+    color: $color3;
+    font-size: 1.5rem;
+
+    @include xsmall {
+      font-size: 1rem;
+      text-transform: uppercase;
+    }
+
+    @include xxsmall {
+      font-size: 0.75rem;
+    }
+
+    &.active {
+      text-decoration: underline;
+    }
+
+    &:not(.active) {
+      text-decoration: none;
+    }
+  }
+}

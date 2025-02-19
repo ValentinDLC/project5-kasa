@@ -1,0 +1,141 @@
+@import "../variables";
+
+.grid {
+  background: $color2;
+  border-radius: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3.125rem 3.75rem;
+  padding: 3.5rem 3.125rem;
+
+  @include small {
+    grid-template-columns: repeat(1, 1fr);
+    padding: 1rem 1rem;
+    gap: 1.5rem 1.625rem;
+  }
+
+  @include xsmall {
+    background: white;
+    padding: 0;
+  }
+}
+
+.location {
+  border-radius: calc(10rem / 16);
+  position: relative;
+  cursor: pointer;
+  transition: transform 330ms ease-in-out;
+
+  @include small {
+    width: 100%;
+    height: auto;
+  }
+
+  @include xxsmall {
+    width: 100%;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(0, 0, 0, 0.5) 100%
+    );
+    z-index: 1;
+    border-radius: 0.7rem;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  img {
+    border-radius: 0.7rem;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  .apartment_subtitle {
+    font-size: 1.125rem;
+    color: white;
+    position: absolute;
+    width: 85%;
+    bottom: 0;
+    left: 0;
+    padding: 0.8rem;
+    line-height: 142.6%;
+    z-index: 2;
+  }
+}
+
+$color1: #ff6060;
+$color2: #f6f6f6;
+$color3: black;
+
+$large: 1280px;
+$medium: 900px;
+$small: 768px;
+$xsmall: 376px;
+
+@mixin medium {
+  @media (max-width: $large) {
+    @content;
+  }
+}
+@mixin small {
+  @media (max-width: $medium) {
+    @content;
+  }
+}
+@mixin xsmall {
+  @media (max-width: $small) {
+    @content;
+  }
+}
+@mixin xxsmall {
+  @media (max-width: $xsmall) {
+    @content;
+  }
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap");
+
+* {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+.wrapper {
+  width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+  @include medium {
+    width: 100%;
+  }
+}
+
+li {
+  list-style: none;
+}

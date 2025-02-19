@@ -1,0 +1,201 @@
+@import "../variables.scss";
+
+.ADarea {
+  @include flex(flex-start, stretch, row);
+  gap: 1.875rem;
+
+  @include xsmall {
+    gap: 1.25rem;
+    flex-direction: column;
+  }
+}
+
+.collapse-describe {
+  flex: 1;
+  position: relative;
+  width: 100%;
+  margin-bottom: 2rem;
+
+  .description {
+    @include flex(space-between, center);
+    padding: calc(10rem / 16) calc(20rem / 16) calc(10rem / 16) calc(15rem / 16);
+    border-radius: calc(5rem / 16);
+    width: 100%;
+    height: 52px;
+    background-color: $color1;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.3s ease-in-out;
+
+    span {
+      @include font(24px, 500);
+    }
+
+    img {
+      transition: transform 0.3s ease-in-out;
+
+      &.rotated {
+        transform: rotate(-180deg);
+      }
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    @include xsmall {
+      padding: calc(10rem / 16) calc(6rem / 16) calc(10rem / 16)
+        calc(10rem / 16);
+      @include font(13px, 500);
+      height: 30px;
+
+      img {
+        width: 1.25rem;
+      }
+    }
+  }
+
+  &::after {
+    height: calc(10rem / 16);
+    content: "";
+    position: absolute;
+    background-color: $color2;
+    top: 47px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+
+    @include xsmall {
+      top: 25px;
+    }
+  }
+
+  .about_describe {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out,
+      padding 0.3s ease-in-out;
+    background-color: $color2;
+    border-radius: calc(5rem / 16);
+    padding: 0 1.5rem;
+
+    &.visible {
+      max-height: 1000px;
+      opacity: 1;
+      padding: 1.5rem;
+    }
+
+    p,
+    ul {
+      margin: 0;
+    }
+
+    p,
+    li {
+      @include font(18px, 400);
+      color: $color3;
+
+      @include xsmall {
+        @include font(12px, 400);
+      }
+    }
+  }
+
+  &.collapse-about {
+    .description {
+      @include font(24px, 500);
+    }
+
+    .about_describe {
+      @include font(24px, 400);
+    }
+  }
+
+  &.collapse-apartment {
+    .description {
+      @include font(18px, 500);
+    }
+
+    .about_describe {
+      @include font(16px, 400);
+      line-height: 1.4;
+    }
+  }
+}
+
+@include medium {
+  .collapse-describe {
+    .description {
+      @include font(18px, 500);
+
+      img {
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    .about_describe {
+      @include font(16px, 400);
+    }
+
+    &.collapse-about {
+      .description {
+        @include font(18px, 500);
+      }
+
+      .about_describe {
+        @include font(14px, 400);
+      }
+    }
+
+    &.collapse-apartment {
+      .description {
+        @include font(14px, 500);
+      }
+
+      .about_describe {
+        @include font(12px, 400);
+      }
+    }
+  }
+}
+
+@include xxsmall {
+  .collapse-describe {
+    .description {
+      @include font(13px, 500);
+
+      img {
+        width: 18px;
+        height: 18px;
+      }
+    }
+
+    .about_describe {
+      @include font(11px, 400);
+    }
+
+    &.collapse-about {
+      .description {
+        @include font(16px, 500);
+      }
+
+      .about_describe {
+        @include font(13px, 400);
+      }
+    }
+
+    &.collapse-apartment {
+      .description {
+        @include font(13px, 500);
+      }
+
+      .about_describe {
+        @include font(11px, 400);
+      }
+    }
+  }
+}

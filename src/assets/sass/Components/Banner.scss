@@ -1,0 +1,43 @@
+@import "../variables";
+
+.banner {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  @include xsmall {
+    margin-bottom: 1.25rem;
+  }
+
+  img {
+    border-radius: 1.5rem;
+    width: 100%;
+    height: 223px;
+    object-fit: cover;
+    filter: brightness(0.7);
+    @include xsmall {
+      height: 111px;
+      border-radius: calc(10rem / 16);
+    }
+  }
+
+  h1 {
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    font-size: 3rem;
+    color: white;
+    @include xsmall {
+      font-size: 1.8rem;
+      text-align: left;
+      padding: 0 2rem;
+    }
+    @include xxsmall {
+      font-size: 1.5rem;
+    }
+  }
+}
